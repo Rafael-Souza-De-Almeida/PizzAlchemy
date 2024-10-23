@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="mb-10 text-3xl block">Pizzas</h1>
+
+<div class="grid grid-cols-3 gap-4 mt-20">
+  <% @pizzas.each do |pizza| %>
+    <div> <!-- Contêiner para cada pizza -->
+      <%= link_to render(pizza), pizza_path(pizza) %> <!-- Renderiza o arquivo _pizza.erb -->
+
+      <div class="mt-2"> <!-- Espaço acima do link -->
+        <%= link_to "Show this pizza", pizza, class: "text-blue-500 hover:underline" %> <!-- Link -->
+      </div>
+    </div>
+  <% end %>
+</div>

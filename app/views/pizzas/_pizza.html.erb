@@ -1,0 +1,25 @@
+<div id="<%= dom_id pizza%>">
+
+  <% if pizza.photo.attached? %>
+    
+    <%= image_tag url_for(pizza.photo), class: "w-[300px] h-[200px] rounded-lg mb-4"%>
+
+  <%end%>
+
+  <p>
+    <strong>Name:</strong>
+    <%= pizza.name %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= pizza.price %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= pizza.description %>
+  </p>
+
+
+</div>
