@@ -12,26 +12,30 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "block" %>
+    <%= form.text_field :name, class: "w-full mt-2 mb-2 px-2" %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class: "w-full mt-2 mb-2 px-2" %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.textarea :description %>
+    <%= form.textarea :description, class: "w-full mt-2 mb-2 h-36" %>
   </div>
 
-  <div>
-    <%= form.label :photo%>
-    <%= form.file_field :photo %>
+  <div class="mb-8">
+    <%= form.label :photo, class: "block mb-2"%>
+    <%= form.file_field :photo, class: %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class = "mb-4">
+    <%= form.label :pizza_type, "Tipo de Pizza", class: "block"%>
+    <%= form.select :pizza_type, options_for_select([['Doce', 'doce'], ['Salgada', 'salgada'], ['Vegetariana', 'vegetariana']]), selected: @pizza.pizza_type%>
   </div>
+
+  <%= render partial: 'layouts/button', locals: {button_text: "Criar Pizza"}%>
+
 <% end %>

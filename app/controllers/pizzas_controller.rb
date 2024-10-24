@@ -1,5 +1,5 @@
 class PizzasController < ApplicationController
-  before_action :set_pizza, only: %i[ show edit update destroy ]
+  before_action :set_pizza, only: %i[show edit update destroy ]
 
   def index
     @pizzas = Pizza.all
@@ -26,6 +26,16 @@ class PizzasController < ApplicationController
     end
   end
 
+  def find_by_type
+    @pizzas = Pizza.where("pizza_type = ?", params[:pizza_type])
+
+    if @pizzas.any?
+      render "index"
+    else
+      render json: { message: "No pizza found with that type" }, status: :not_found
+    end
+  end
+
   def update
     respond_to do |format|
       if @pizza.update(pizza_params)
@@ -49,13 +59,12 @@ class PizzasController < ApplicationController
 
   private
 
-    def set_pizza
-      @pizza = Pizza.find(params.expect(:id))
-    end
-
+  def set_pizza
+    @pizza = Pizza.find(params[:id])
+  end
 
     def pizza_params
-      params.expect(pizza: [ :name, :price, :description, :photo ])
+      params.expect(pizza: [ :name, :price, :description, :photo, :pizza_type ])
     end
 end
 

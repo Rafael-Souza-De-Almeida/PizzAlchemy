@@ -1,11 +1,14 @@
 <% content_for :title, "New pizza" %>
 
-<h1>New pizza</h1>
+<h1 class = "text-3xl">New pizza</h1>
 
-<%= render "form", pizza: @pizza %>
+<div class= "mt-20">
 
-<br>
+  <%= render "form", pizza: @pizza %>
 
-<div>
-  <%= link_to "Back to pizzas", pizzas_path %>
+  <div class = "mt-4">
+    <%= link_to "Voltar ao menu", pizzas_path %>
+  </div>
+
 </div>
+

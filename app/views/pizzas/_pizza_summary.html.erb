@@ -1,0 +1,17 @@
+<div id="<%= dom_id(pizza)%>">
+
+  <% if pizza.photo.attached? %>
+    
+    <%= image_tag url_for(pizza.photo), class: "w-[300px] h-[200px] rounded-lg mb-4"%>
+
+  <%end%>
+
+  <p>
+    <%= pizza.name %>
+  </p>
+
+  <p>
+    <strong>Preço:</strong> R$ <%= number_with_precision(pizza.price, precision: 2, delimiter: ".", separator: ",") %></strong>
+  </p>
+
+</div>
