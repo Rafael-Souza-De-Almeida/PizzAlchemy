@@ -1,12 +1,18 @@
 <% content_for :title, "Editing pizza" %>
 
-<h1>Editing pizza</h1>
 
-<%= render "form", pizza: @pizza %>
+  <h1 class = "text-md md:text-3xl">Editar pizza</h1>
+  <div class = "mt-24">
 
-<br>
+  <%= render "form", pizza: @pizza %>
 
-<div>
-  <%= link_to "Show this pizza", @pizza %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
+  <br>
+
+  <div>
+    <%= link_to "Mostrar Pizza", @pizza %> |
+    <%= link_to "Voltar ao menu", pizzas_path %>
+  </div>
+
 </div>
+
+

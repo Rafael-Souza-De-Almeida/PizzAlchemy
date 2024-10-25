@@ -17,7 +17,7 @@ class PizzasController < ApplicationController
 
     respond_to do |format|
       if @pizza.save
-        format.html { redirect_to @pizza, notice: "Pizza was successfully created." }
+        format.html { redirect_to @pizza, notice: "Pizza criada com sucesso." }
         format.json { render :show, status: :created, location: @pizza }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,14 +32,14 @@ class PizzasController < ApplicationController
     if @pizzas.any?
       render "index"
     else
-      render json: { message: "No pizza found with that type" }, status: :not_found
+      render html: { message: "Pizza não encontrada" }, status: :not_found
     end
   end
 
   def update
     respond_to do |format|
       if @pizza.update(pizza_params)
-        format.html { redirect_to @pizza, notice: "Pizza was successfully updated." }
+        format.html { redirect_to @pizza, notice: "Pizza editada com sucesso" }
         format.json { render :show, status: :ok, location: @pizza }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class PizzasController < ApplicationController
     @pizza.destroy!
 
     respond_to do |format|
-      format.html { redirect_to pizzas_path, status: :see_other, notice: "Pizza was successfully destroyed." }
+      format.html { redirect_to pizzas_path, status: :see_other, notice: "Pizza deletada com sucesso" }
       format.json { head :no_content }
     end
   end
@@ -67,7 +67,3 @@ class PizzasController < ApplicationController
       params.expect(pizza: [ :name, :price, :description, :photo, :pizza_type ])
     end
 end
-
-# No Rails, todas as variáveis de instância definidas no controlador (como @pizza) ficam disponíveis automaticamente
-#  para as views correspondentes à ação que está sendo executada. Portanto, quando a ação show é chamada, a variável
-#   @pizza está disponível para ser usada na view show.html.erb sem precisar ser explicitamente passada.

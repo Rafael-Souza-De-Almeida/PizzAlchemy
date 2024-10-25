@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="mb-4">
+  <p class="text-green-500"><%= notice %></p>
+</div>
 
-<%= render @pizza %>
+<div class="flex flex-col mt-16 space-y-6">
+  <div class="rounded-lg">
+    <%= render @pizza %>
+  </div>
 
-<div>
-  <%= link_to "Edit this pizza", edit_pizza_path(@pizza) %> |
-  <%= link_to "Back to pizzas", pizzas_path %>
-
-  <%= button_to "Destroy this pizza", @pizza, method: :delete %>
+  <div class="flex ml-8 space-x-8">
+    <%= link_to "Editar Pizza", edit_pizza_path(@pizza), class: "text-blue-500 hover:underline" %>
+    <%= link_to "Voltar ao menu", pizzas_path, class: "text-gray-500 hover:underline" %>
+    <%= button_to "Deletar Pizza", @pizza, method: :delete, class: "text-red-500 hover:underline ml-auto" %>
+  </div>
 </div>

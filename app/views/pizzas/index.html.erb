@@ -1,15 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-green-500"><%= notice %></p>
 
-<h1 class="mb-10 text-3xl block">Menu</h1>
+<div class="mt-16">
 
-<div class="grid grid-cols-4 gap-y-16 gap-x-16 mt-20 mb-5">
-  <% @pizzas.each do |pizza| %>
-    <div>
-      <%= link_to render("pizza_summary", pizza: pizza), pizza_path(pizza) %> 
+  <h1 class="mb-10 text-3xl md:text-4xl block">Menu</h1>
 
-      <div class="mt-2"> <!-- Espaço acima do link -->
-        <%= link_to render(partial: "layouts/button", locals: {button_text: "Detalhar"}), pizza %> <!-- Link -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-16 mt-10 mb-5">
+    <% @pizzas.each do |pizza| %>
+      <div>
+        <%= link_to render("pizza_summary", pizza: pizza), pizza_path(pizza) %> 
+
+        <div class="mt-2">
+          <%= link_to render(partial: "layouts/button", locals: {button_text: "Detalhar"}), pizza %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
 </div>

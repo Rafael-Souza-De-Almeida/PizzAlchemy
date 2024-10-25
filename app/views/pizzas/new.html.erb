@@ -1,8 +1,11 @@
 <% content_for :title, "New pizza" %>
 
-<h1 class = "text-3xl">New pizza</h1>
+<div class = "flex justify-center">
+  <div>
+    <h1 class = "md:text-3xl text-lg">Nova Pizza</h1>
+  </div>
 
-<div class= "mt-20">
+  <div class= "mt-20">
 
   <%= render "form", pizza: @pizza %>
 
@@ -11,4 +14,8 @@
   </div>
 
 </div>
+
+
+</div>
+
 

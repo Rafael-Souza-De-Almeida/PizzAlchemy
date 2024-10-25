@@ -1,25 +1,25 @@
-<div id="<%= dom_id pizza%>">
+<div id="<%= dom_id pizza %>" class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-16 p-6 rounded-lg ">
+  
+  <div class="flex-shrink-0">
+    <% if pizza.photo.attached? %>
+      <%= image_tag url_for(pizza.photo), class: "w-full md:w-[600px] h-auto rounded-lg mb-4" %>
+    <% end %>
+  </div>
 
-  <% if pizza.photo.attached? %>
-    
-    <%= image_tag url_for(pizza.photo), class: "w-[300px] h-[200px] rounded-lg mb-4"%>
+  <div class="space-y-6 md:w-[600px]">
+    <p class="text-4xl font-semibold text-yellow-500">
+      <%= pizza.name %>
+    </p>
 
-  <%end%>
+    <p class="text-md text-slate-400 text-left">
+      <%= pizza.description %>
+    </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= pizza.name %>
-  </p>
+    <p class="text-lg text-gray-700 font-bold">
+      R$ <%= number_with_precision(pizza.price, precision: 2, delimiter: ".", separator: ",") %>
+    </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= pizza.price %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= pizza.description %>
-  </p>
-
+    <%= render(partial: "layouts/button", locals: { button_text: "Adicionar ao Carrinho" }) %>
+  </div>
 
 </div>

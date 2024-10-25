@@ -1,8 +1,6 @@
 <%= form_with(model: pizza) do |form| %>
   <% if pizza.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(pizza.errors.count, "error") %> prohibited this pizza from being saved:</h2>
-
       <ul>
         <% pizza.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -29,6 +27,11 @@
   <div class="mb-8">
     <%= form.label :photo, class: "block mb-2"%>
     <%= form.file_field :photo, class: %>
+     <% if pizza.photo.attached? %>
+      <div class="mt-2">
+        <%= image_tag url_for(pizza.photo), class: "w-48 h-auto rounded-lg" %>
+      </div>
+    <% end %>
   </div>
 
   <div class = "mb-4">
