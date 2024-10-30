@@ -11,7 +11,7 @@ services:
     volumes:
       - .:/rails
     command: ["./bin/rails", "server", "-b", "0.0.0.0"]
-    tty: true # Manter o tty ativo para evitar que o container feche prematuramente
+    tty: true
 
   tailwind:
     build:
@@ -19,5 +19,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/rails
-    command: ["./bin/rails", "tailwindcss:watch", "always"] # Usando o argumento 'always' para manter o processo vivo
+    command: ["./bin/rails", "tailwindcss:watch", "always"]
     tty: true
