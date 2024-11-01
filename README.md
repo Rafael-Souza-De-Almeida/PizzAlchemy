@@ -30,8 +30,8 @@
 1. **Clone o repositório**:
 
    ```
-   git clone https://github.com/Rafael-Souza-De-Almeida/pizzalchemy.git
-   cd pizzalchemy
+   git clone https://github.com/Rafael-Souza-De-Almeida/pizzAlchemy.git
+   cd pizzAlchemy
    ```
 
 2. **Configure o banco de dados e os assets**:
