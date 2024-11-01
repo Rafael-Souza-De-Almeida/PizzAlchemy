@@ -54,7 +54,7 @@
 
 ![Formulário de Cadastro](https://github.com/user-attachments/assets/bff7d012-006c-43ae-bf38-51a5fffc6198)
 
-### Visualização da Pizza
+### Visualização de Pizza
 
 ![Visualização](https://github.com/user-attachments/assets/2261a418-cdcb-40aa-8218-2e84ae312bf1)
 
