@@ -8,10 +8,14 @@
     <%= link_to 'Doces', find_pizza_type_path(pizza_type: "doce"), class: 'text-black px-4 py-2 hover:underline' %>
     <%= link_to 'Salgadas', find_pizza_type_path(pizza_type: "salgada"), class: 'text-black px-4 py-2 hover:underline' %>
     <%= link_to 'Vegetarianas', find_pizza_type_path(pizza_type: "vegetariana"), class: 'text-black px-4 py-2 hover:underline' %>
+  </div>
+
+  <div class = "hidden md:flex items-center space-x-2">
     <% if !current_user %>
       <%= link_to 'Login', new_user_session_path, class: 'text-black px-4 py-2 hover:underline' %>
+      <%= link_to 'Cadastrar-se', new_user_registration_path,  class: 'text-black px-4 py-2 hover:underline'%>
     <% else %>
-       <p>Olá, <%= current_user.name %>!</p>
+       <%= button_to "Logout", destroy_user_session_path, method: :delete%>
     <% end %>
   </div>
 
