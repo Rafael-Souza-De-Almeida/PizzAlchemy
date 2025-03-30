@@ -15,7 +15,12 @@
       <%= link_to 'Login', new_user_session_path, class: 'text-black px-4 py-2 hover:underline' %>
       <%= link_to 'Cadastrar-se', new_user_registration_path,  class: 'text-black px-4 py-2 hover:underline'%>
     <% else %>
-       <%= button_to "Logout", destroy_user_session_path, method: :delete%>
+      <div class = "flex gap-4 items-center">
+        <p>Olá, <%= current_user.name %>!</p>
+          <%= button_to destroy_user_session_path, method: :delete do%>
+           <%= render(partial: "layouts/button", locals: { button_text: "Logout", button_class: "bg-yellow-500 px-4 py-2 rounded-lg hover:cursor-pointer w-full" }) %>
+          <% end %>
+        </div>
     <% end %>
   </div>
 
@@ -29,7 +34,7 @@
   
 </div>
 
-<div id="mobile-menu" class="hidden bg-yellow-300 md:hidden flex flex-col items-center space-y-4 p-4">
+<div id="mobile-menu" class=" bg-yellow-300 md:hidden flex flex-col items-center space-y-4 p-4">
   <%= link_to 'Doces', find_pizza_type_path(pizza_type: "doce"), class: 'text-black px-4 py-2 hover:underline' %>
   <%= link_to 'Salgadas', find_pizza_type_path(pizza_type: "salgada"), class: 'text-black px-4 py-2 hover:underline' %>
   <%= link_to 'Vegetarianas', find_pizza_type_path(pizza_type: "vegetariana"), class: 'text-black px-4 py-2 hover:underline' %>
