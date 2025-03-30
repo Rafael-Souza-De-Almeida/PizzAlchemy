@@ -5,9 +5,16 @@
     <%= render @pizza %>
   </div>
 
+  
+
   <div class="flex ml-8 space-x-8">
-    <%= link_to "Editar Pizza", edit_pizza_path(@pizza), class: "text-blue-500 hover:underline" %>
     <%= link_to "Voltar ao menu", pizzas_path, class: "text-gray-500 hover:underline" %>
-    <%= button_to "Deletar Pizza", @pizza, method: :delete, class: "text-red-500 hover:underline ml-auto" %>
+
+    <% if current_user&.is_admin?%>
+      <%= link_to "Editar Pizza", edit_pizza_path(@pizza), class: "text-blue-500 hover:underline" %>
+      <%= button_to "Deletar Pizza", @pizza, method: :delete, class: "text-red-500 hover:underline ml-auto" %>
+    <% end %>
+
   </div>
 </div>
+ 

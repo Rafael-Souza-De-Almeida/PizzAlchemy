@@ -17,6 +17,11 @@
     <% else %>
       <div class = "flex gap-4 items-center">
         <p>Olá, <%= current_user.name %>!</p>
+        <% if current_user.admin? %>
+            <%= link_to new_pizza_path, method: :post do%>
+              <%= render(partial: "layouts/button", locals: { button_text: "Adicionar Pizza", button_class: "bg-yellow-500 px-4 py-2 rounded-lg hover:cursor-pointer" }) %>
+            <% end %>
+        <% end %>
           <%= button_to destroy_user_session_path, method: :delete do%>
            <%= render(partial: "layouts/button", locals: { button_text: "Logout", button_class: "bg-yellow-500 px-4 py-2 rounded-lg hover:cursor-pointer w-full" }) %>
           <% end %>

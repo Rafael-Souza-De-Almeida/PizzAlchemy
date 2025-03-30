@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   before_action :set_pizza, only: %i[show edit update destroy ]
-  before_action :authenticate_user!, only: [ :new, :edit, :destroy, :update ]
+  before_action :check_admin, only: [ :new, :edit, :destroy, :update, :create ]
 
   def index
     @pizzas = Pizza.all
@@ -67,4 +67,10 @@ class PizzasController < ApplicationController
     def pizza_params
       params.expect(pizza: [ :name, :price, :description, :photo, :pizza_type ])
     end
+
+  def check_admin
+    unless current_user.is_admin?
+      redirect_to root_path
+    end
+  end
 end
