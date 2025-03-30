@@ -1,5 +1,6 @@
 class PizzasController < ApplicationController
   before_action :set_pizza, only: %i[show edit update destroy ]
+  before_action :authenticate_user!, only: [ :new, :edit, :destroy, :update ]
 
   def index
     @pizzas = Pizza.all
