@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  size: MyString
+  crust: MyString
+  flavor: MyString
+  ingredients: MyText
+  border: MyString
+  sauce: MyString
+  price: 9.99
+  pizza: one
+
+two:
+  size: MyString
+  crust: MyString
+  flavor: MyString
+  ingredients: MyText
+  border: MyString
+  sauce: MyString
+  price: 9.99
+  pizza: two

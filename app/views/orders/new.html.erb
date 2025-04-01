@@ -1,0 +1,47 @@
+<h1>Faça seu pedido</h1>
+
+<%= form_with model: @order, url: orders_path, local: true do |f| %>
+
+  <h2>Escolha sua Pizza</h2>
+  <%= f.fields_for :order_pizzas do |pizza_fields| %>
+    <p>
+      <%= pizza_fields.label :size, "Tamanho" %>
+      <%= pizza_fields.select :size, ["Pequena", "Média", "Grande", "Família"] %>
+    </p>
+
+    <p>
+      <%= pizza_fields.label :crust, "Massa" %>
+      <%= pizza_fields.select :crust, ["Tradicional", "Pan", "Fina"] %>
+    </p>
+
+    <p>
+      <%= pizza_fields.label :flavor, "Sabor" %>
+      <%= pizza_fields.text_field :flavor %>
+    </p>
+
+    <p>
+      <%= pizza_fields.label :border, "Borda" %>
+      <%= pizza_fields.select :border, ["Nenhuma", "Catupiry", "Cheddar", "Chocolate"] %>
+    </p>
+
+    <p>
+      <%= pizza_fields.label :sauce, "Molho" %>
+      <%= pizza_fields.select :sauce, ["Tomate", "Branco", "Picante"] %>
+    </p>
+  <% end %>
+
+  <h2>Escolha seu Refrigerante</h2>
+  <%= f.fields_for :order_drinks do |drink_fields| %>
+    <p>
+      <%= drink_fields.label :name, "Bebida" %>
+      <%= drink_fields.select :name, ["Coca-Cola", "Fanta", "Guaraná", "Sprite"] %>
+    </p>
+
+    <p>
+      <%= drink_fields.label :size, "Tamanho" %>
+      <%= drink_fields.select :size, ["Lata", "600ml", "1L", "2L"] %>
+    </p>
+  <% end %>
+
+  <%= f.submit "Adicionar ao Carrinho" %>
+<% end %>

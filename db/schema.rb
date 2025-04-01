@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_30_192114) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_31_201519) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,6 +39,36 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_192114) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "order_drinks", force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id", null: false
+    t.index ["order_id"], name: "index_order_drinks_on_order_id"
+  end
+
+  create_table "order_pizzas", force: :cascade do |t|
+    t.string "size"
+    t.string "crust"
+    t.string "flavor"
+    t.text "ingredients"
+    t.string "border"
+    t.string "sauce"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id", null: false
+    t.index ["order_id"], name: "index_order_pizzas_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "total_price", precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pizzas", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -64,4 +94,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_192114) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "order_drinks", "orders"
+  add_foreign_key "order_pizzas", "orders"
 end
